@@ -1,8 +1,9 @@
 import React from "react";
+import Layout from "../../Components/Layout";
 
-function MyOrder() {
+const MyOrder = () => {
   return (
-    <div className="bg-slate-50">MyOrder</div>
+    <Layout>MyOrder</Layout>
   )
 }
 

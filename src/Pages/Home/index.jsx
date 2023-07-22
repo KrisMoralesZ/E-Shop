@@ -1,7 +1,11 @@
+import React from "react";
+import Layout from "../../Components/Layout";
 
-function Home() {
+const Home = () => {
   return (
-    <div className="bg-slate-50">Home</div>
+    <Layout>
+      Home
+    </Layout>
   )
 }
 

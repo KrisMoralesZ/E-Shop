@@ -1,8 +1,9 @@
 import React from "react";
+import Layout from "../../Components/Layout";
 
-function NotFound() {
+const NotFound = () => {
   return (
-    <div className="bg-slate-50">NotFound</div>
+    <Layout>NotFound</Layout>
   )
 }
 

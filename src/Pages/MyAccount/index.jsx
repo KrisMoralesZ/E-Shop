@@ -1,8 +1,11 @@
 import React from "react";
+import Layout from "../../Components/Layout";
 
-function MyAccount() {
+const MyAccount = () => {
   return (
-    <div className="bg-slate-50">MyAccount</div>
+    <Layout>
+      MyAccount
+    </Layout>
   )
 }
 
