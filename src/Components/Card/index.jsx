@@ -9,7 +9,9 @@ const Card = (data) => {
     openProductDetails,
     setProductToShow,
     cartProducts,
-    setCartProducts
+    setCartProducts,
+    openCheckOutsideMenu,
+    closeProductDetails
   } = useContext(ShoppingCartContext)
 
   const showProduct = (productDetail) => {
@@ -17,9 +19,12 @@ const Card = (data) => {
     setProductToShow(productDetail)
   }
 
-  const addProductsToCart = (productData) => {
+  const addProductsToCart = (event, productData) => {
+    event.stopPropagation()
     setCount(count + 1)
     setCartProducts([...cartProducts, productData])
+    openCheckOutsideMenu()
+    closeProductDetails()
   }
 
   return (
@@ -34,7 +39,7 @@ const Card = (data) => {
           alt={data.data.title}
         />
         <div className="absolute top-0 right-0 justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1"
-          onClick={() => addProductsToCart(data.data)}>
+          onClick={(event) => addProductsToCart(event, data.data)}>
           <PlusIcon />
         </div>
         <p className="flex justify-between">
