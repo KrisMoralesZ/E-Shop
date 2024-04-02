@@ -5,7 +5,12 @@ import { ShoppingCartContext } from "../../Context";
 import './CheckOutSideMenu.css'
 
 const CheckOutSideMenu = () => {
-  const { isCheckOutSideMenuOpen, closeCheckOutsideMenu, cartProducts } = useContext(ShoppingCartContext)
+  const { isCheckOutSideMenuOpen, closeCheckOutsideMenu, cartProducts, setCartProducts } = useContext(ShoppingCartContext)
+
+  const handleDelete = (id) => {
+    const filteredProducts = cartProducts.filter(product => product.id !== id)
+    setCartProducts(filteredProducts)
+  }
 
   return (
     <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} product-details flex-col fixed bg-white right-0 border border-black rounded-lg`}>
@@ -19,9 +24,11 @@ const CheckOutSideMenu = () => {
           cartProducts.map(product => (
             <OrderCart
               key={product.id}
+              id={product.id}
               title={product.title}
               imageUrl={product.images}
               price={product.price}
+              handleDelete={handleDelete}
             />
           ))
         }
