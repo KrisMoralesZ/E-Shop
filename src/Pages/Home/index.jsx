@@ -5,17 +5,27 @@ import Card from "../../Components/Card";
 import ProductDetails from "../../Components/ProductDetails";
 
 const Home = () => {
-  const { items, setItems } = useContext(ShoppingCartContext)
+  const { items, filteredItems, setItems, setFilteredItems } = useContext(ShoppingCartContext)
 
   const [searchByTitle, setSearchByTitle] = useState(null)
 
-  console.log(searchByTitle)
 
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
       .then(response => response.json())
       .then(data => setItems(data))
   }, [])
+
+  const filteredItemsByTitle = (items, searchByTitle) => {
+    return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+  }
+
+  useEffect(() => {
+    if (searchByTitle) {
+      setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+    }
+  }, [items, searchByTitle])
+
 
   return (
     <Layout>
@@ -29,9 +39,13 @@ const Home = () => {
         onChange={(event) => setSearchByTitle(event.target.value)}
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {items?.map(item => (
-          <Card key={item.id} data={item} />
-        ))}
+        {searchByTitle ?
+          filteredItems?.map(filteredItem => (
+            <Card key={filteredItem.id} data={filteredItem} />
+          )) :
+          items?.map(item => (
+            <Card key={item.id} data={item} />
+          ))}
       </div>
       <ProductDetails />
     </Layout>
