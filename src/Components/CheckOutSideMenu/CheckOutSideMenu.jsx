@@ -7,7 +7,14 @@ import { totalPrice } from "../../utils";
 import './CheckOutSideMenu.css'
 
 const CheckOutSideMenu = () => {
-  const { isCheckOutSideMenuOpen, closeCheckOutsideMenu, cartProducts, setCartProducts, order, setOrder } = useContext(ShoppingCartContext)
+  const {
+    isCheckOutSideMenuOpen,
+    closeCheckOutsideMenu,
+    cartProducts,
+    setCartProducts,
+    order,
+    setOrder
+  } = useContext(ShoppingCartContext)
 
   const handleDelete = (id) => {
     const filteredProducts = cartProducts.filter(product => product.id !== id)
@@ -25,6 +32,8 @@ const CheckOutSideMenu = () => {
     setOrder([...order, orderToAdd])
 
     setCartProducts([])
+
+    closeCheckOutsideMenu()
   }
 
   return (
