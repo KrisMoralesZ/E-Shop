@@ -1,14 +1,19 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import Layout from "../../Components/Layout";
 import Card from "../../Components/Card";
 import ProductDetails from "../../Components/ProductDetails";
 
 const Home = () => {
-  const { items, filteredItems, setItems, setFilteredItems } = useContext(ShoppingCartContext)
-
-  const [searchByTitle, setSearchByTitle] = useState(null)
-
+  const {
+    items,
+    filteredItems,
+    searchByTitle,
+    searchByCategory,
+    setItems,
+    setFilteredItems,
+    setSearchByTitle,
+  } = useContext(ShoppingCartContext)
 
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
@@ -20,11 +25,20 @@ const Home = () => {
     return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
   }
 
+  const filteredItemsByCategory = (items, searchByCategory) => {
+    return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
+  }
+
+
   useEffect(() => {
     if (searchByTitle) {
       setFilteredItems(filteredItemsByTitle(items, searchByTitle))
     }
-  }, [items, searchByTitle])
+
+    if (searchByCategory) {
+      setFilteredItems(filteredItemsByCategory(items, searchByCategory))
+    }
+  }, [items, searchByTitle, searchByCategory])
 
 
   return (

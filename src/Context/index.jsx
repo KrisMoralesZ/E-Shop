@@ -7,6 +7,10 @@ export const ShoppingCartProvider = ({ children }) => {
   const [items, setItems] = useState(null);
   const [filteredItems, setFilteredItems] = useState(null)
 
+  // Search and filtered items
+  const [searchByTitle, setSearchByTitle] = useState(null)
+  const [searchByCategory, setSearchByCategory] = useState(null)
+
   // Shopping Cart
   const [count, setCount] = useState(0)
 
@@ -36,6 +40,8 @@ export const ShoppingCartProvider = ({ children }) => {
     <ShoppingCartContext.Provider value={{
       items,
       filteredItems,
+      searchByTitle,
+      searchByCategory,
       count,
       isProductDetailsOpen,
       isCheckOutSideMenuOpen,
@@ -44,6 +50,8 @@ export const ShoppingCartProvider = ({ children }) => {
       order,
       setItems,
       setFilteredItems,
+      setSearchByTitle,
+      setSearchByCategory,
       setCount,
       openCheckOutsideMenu,
       closeCheckOutsideMenu,
