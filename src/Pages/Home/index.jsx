@@ -19,27 +19,25 @@ const Home = () => {
     fetch('https://api.escuelajs.co/api/v1/products')
       .then(response => response.json())
       .then(data => setItems(data))
-  }, [])
+  }, []);
 
-  const filteredItemsByTitle = (items, searchByTitle) => {
-    return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
-  }
+  const filteredItemsByTitle = (items, searchByTitle) =>
+    items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
 
-  const filteredItemsByCategory = (items, searchByCategory) => {
-    return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
-  }
-
+  const filteredItemsByCategory = (items, searchByCategory) =>
+    items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()));
 
   useEffect(() => {
     if (searchByTitle) {
-      setFilteredItems(filteredItemsByTitle(items, searchByTitle))
+      setFilteredItems(filteredItemsByTitle(items, searchByTitle));
     }
 
     if (searchByCategory) {
-      setFilteredItems(filteredItemsByCategory(items, searchByCategory))
+      setFilteredItems(filteredItemsByCategory(items, searchByCategory));
     }
-  }, [items, searchByTitle, searchByCategory])
+  }, [items, searchByTitle, searchByCategory]);
 
+  const showFilteredItems = searchByTitle || searchByCategory;
 
   return (
     <Layout>
@@ -53,7 +51,7 @@ const Home = () => {
         onChange={(event) => setSearchByTitle(event.target.value)}
       />
       <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
-        {searchByTitle ?
+        {showFilteredItems ?
           filteredItems?.map(filteredItem => (
             <Card key={filteredItem.id} data={filteredItem} />
           )) :

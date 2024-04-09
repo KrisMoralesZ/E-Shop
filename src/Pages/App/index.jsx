@@ -33,9 +33,9 @@ const App = () => {
   return (
     <ShoppingCartProvider>
       <BrowserRouter>
-        <AppRoutes />
         <Navbar />
         <CheckOutSideMenu />
+        <AppRoutes />
       </BrowserRouter>
     </ShoppingCartProvider>
   )
