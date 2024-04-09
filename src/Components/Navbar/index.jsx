@@ -5,8 +5,8 @@ import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
 
 const Navbar = () => {
-  const { count, setSearchByCategory } = useContext(ShoppingCartContext)
-  const activeStyle = 'underline underline-offset-4'
+  const { count, setSearchByCategory } = useContext(ShoppingCartContext);
+  const activeStyle = 'underline underline-offset-4';
 
   return (
     <nav className="flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 text-sm font-light">
@@ -40,7 +40,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to='/furnitures'
-            onClick={() => setSearchByCategory('furnitures')}
+            onClick={() => setSearchByCategory('furniture')}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
             Furnitures
@@ -48,17 +48,17 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/toys'
-            onClick={() => setSearchByCategory('toys')}
+            to='/shoes'
+            onClick={() => setSearchByCategory('shoes')}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
-            Toys
+            Shoes
           </NavLink>
         </li>
         <li>
           <NavLink
             to='/others'
-            onClick={() => setSearchByCategory('others')}
+            onClick={() => setSearchByCategory(null)}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
             Others

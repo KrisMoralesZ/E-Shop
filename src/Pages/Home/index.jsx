@@ -13,7 +13,9 @@ const Home = () => {
     setItems,
     setFilteredItems,
     setSearchByTitle,
-  } = useContext(ShoppingCartContext)
+  } = useContext(ShoppingCartContext);
+
+  console.log(items)
 
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')

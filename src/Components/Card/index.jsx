@@ -12,23 +12,23 @@ const Card = (data) => {
     setCartProducts,
     openCheckOutsideMenu,
     closeProductDetails
-  } = useContext(ShoppingCartContext)
+  } = useContext(ShoppingCartContext);
 
   const showProduct = (productDetail) => {
-    openProductDetails()
-    setProductToShow(productDetail)
+    openProductDetails();
+    setProductToShow(productDetail);
   }
 
   const addProductsToCart = (event, productData) => {
-    event.stopPropagation()
-    setCount(count + 1)
-    setCartProducts([...cartProducts, productData])
-    openCheckOutsideMenu()
-    closeProductDetails()
+    event.stopPropagation();
+    setCount(count + 1);
+    setCartProducts([...cartProducts, productData]);
+    openCheckOutsideMenu();
+    closeProductDetails();
   }
 
   const renderIcon = (id) => {
-    const isInCart = cartProducts.filter(product => product.id === id).length > 0
+    const isInCart = cartProducts.filter(product => product.id === id).length > 0;
 
     if (isInCart) {
       return (
