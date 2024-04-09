@@ -16,13 +16,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
   // Product Detail
   const [isProductDetailsOpen, setIsProductDetailsOpen] = useState(false);
-  const openProductDetails = () => setIsProductDetailsOpen(true);
-  const closeProductDetails = () => setIsProductDetailsOpen(false);
 
   // CheckOutSideMenu
   const [isCheckOutSideMenuOpen, setIsCheckOutSideMenuOpen] = useState(false);
-  const openCheckOutsideMenu = () => setIsCheckOutSideMenuOpen(true);
-  const closeCheckOutsideMenu = () => setIsCheckOutSideMenuOpen(false);
 
   // Product Details
   const [productToShow, setProductToShow] = useState({});
@@ -50,10 +46,8 @@ export const ShoppingCartProvider = ({ children }) => {
       setSearchByTitle,
       setSearchByCategory,
       setCount,
-      openCheckOutsideMenu,
-      closeCheckOutsideMenu,
-      openProductDetails,
-      closeProductDetails,
+      setIsCheckOutSideMenuOpen,
+      setIsProductDetailsOpen,
       setProductToShow,
       setCartProducts,
       setOrder

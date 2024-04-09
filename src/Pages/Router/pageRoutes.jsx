@@ -44,8 +44,8 @@ export const pageRoutes = [
     element={<Home />}
   />,
   <Route
-    path='/toys'
-    key='/toys'
+    path='/shoes'
+    key='/shoes'
     element={<Home />}
   />,
   <Route

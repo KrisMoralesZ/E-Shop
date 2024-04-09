@@ -1,24 +1,27 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { XMarkIcon } from '@heroicons/react/24/solid'
-import OrderCart from "../OrderCard";
+import OrderCard from "../OrderCard";
 import { ShoppingCartContext } from "../../Context";
 import { totalPrice } from "../../utils";
-import './CheckOutSideMenu.css'
+import './CheckOutSideMenu.css';
 
 const CheckOutSideMenu = () => {
   const {
+    count,
     isCheckOutSideMenuOpen,
-    closeCheckOutsideMenu,
     cartProducts,
     setCartProducts,
     order,
-    setOrder
-  } = useContext(ShoppingCartContext)
+    setCount,
+    setOrder,
+    setIsCheckOutSideMenuOpen
+  } = useContext(ShoppingCartContext);
 
   const handleDelete = (id) => {
-    const filteredProducts = cartProducts.filter(product => product.id !== id)
-    setCartProducts(filteredProducts)
+    const filteredProducts = cartProducts.filter(product => product.id !== id);
+    setCount(count - 1);
+    setCartProducts(filteredProducts);
   }
 
   const handleCheckout = () => {
@@ -27,26 +30,26 @@ const CheckOutSideMenu = () => {
       products: cartProducts,
       totalProducts: cartProducts.length,
       totalPrice: totalPrice(cartProducts)
-    }
-
-    setOrder([...order, orderToAdd])
-
-    setCartProducts([])
-
-    closeCheckOutsideMenu()
+    };
+    setOrder([...order, orderToAdd]);
+    setCartProducts([]);
+    setIsCheckOutSideMenuOpen(false);
   }
 
   return (
-    <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} product-details flex-col fixed bg-white right-0 border border-black rounded-lg`}>
+    <aside
+      className={
+        `${isCheckOutSideMenuOpen && cartProducts.length !== 0 ? 'flex' : 'hidden'} product-details flex-col fixed bg-white right-0 border border-black rounded-lg z-10`
+      }>
       <div div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">My Order</h2>
         <XMarkIcon className="h-6 w-6 text-black cursor-pointer"
-          onClick={() => closeCheckOutsideMenu()}></XMarkIcon>
+          onClick={() => setIsCheckOutSideMenuOpen(false)}></XMarkIcon>
       </div>
       <div className="px-6 overflow-y-scroll flex-1">
         {
           cartProducts.map(product => (
-            <OrderCart
+            <OrderCard
               key={product.id}
               id={product.id}
               title={product.title}
