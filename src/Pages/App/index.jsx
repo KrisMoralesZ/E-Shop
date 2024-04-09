@@ -1,41 +1,14 @@
-import { useRoutes, BrowserRouter } from 'react-router-dom'
-import { ShoppingCartProvider } from '../../Context'
-import Home from '../Home'
-import MyAccount from '../MyAccount'
-import MyOrder from '../MyOrder'
-import MyOrders from '../MyOrders'
-import SignIn from '../SignIn'
-import NotFound from '../NotFound'
-import Navbar from '../../Components/Navbar'
-import CheckOutSideMenu from '../../Components/CheckOutSideMenu/CheckOutSideMenu'
-import './App.css'
-
-const AppRoutes = () => {
-  let routes = useRoutes([
-    { path: '/', element: <Home /> },
-    { path: '/clothes', element: <Home /> },
-    { path: '/electronics', element: <Home /> },
-    { path: '/furnitures', element: <Home /> },
-    { path: '/toys', element: <Home /> },
-    { path: '/others', element: <Home /> },
-    { path: '/my-account', element: <MyAccount /> },
-    { path: '/my-order', element: <MyOrder /> },
-    { path: '/my-orders', element: <MyOrders /> },
-    { path: '/my-orders/last', element: <MyOrder /> },
-    { path: '/my-order/:id', element: <MyOrder /> },
-    { path: '/sign-in', element: <SignIn /> },
-    { path: '/*', element: <NotFound /> },
-  ])
-  return routes
-}
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Router from '../Router';
+import { ShoppingCartProvider } from '../../Context';
+import './App.css';
 
 const App = () => {
   return (
     <ShoppingCartProvider>
       <BrowserRouter>
-        <Navbar />
-        <CheckOutSideMenu />
-        <AppRoutes />
+        <Router />
       </BrowserRouter>
     </ShoppingCartProvider>
   )
