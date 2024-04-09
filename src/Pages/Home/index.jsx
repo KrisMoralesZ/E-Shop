@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import Layout from "../../Components/Layout";
 import Card from "../../Components/Card";
+import CheckOutSideMenu from "../../Components/CheckOutSideMenu/CheckOutSideMenu";
 import ProductDetails from "../../Components/ProductDetails";
 
 const Home = () => {
@@ -14,8 +15,6 @@ const Home = () => {
     setFilteredItems,
     setSearchByTitle,
   } = useContext(ShoppingCartContext);
-
-  console.log(items)
 
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
@@ -52,7 +51,7 @@ const Home = () => {
         className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
         onChange={(event) => setSearchByTitle(event.target.value)}
       />
-      <div className="grid gap-4 grid-cols-4 w-full max-w-screen-lg">
+      <div className="flex flex-wrap gap-4 w-full max-w-screen-lg">
         {showFilteredItems ?
           filteredItems?.map(filteredItem => (
             <Card key={filteredItem.id} data={filteredItem} />
@@ -61,6 +60,7 @@ const Home = () => {
             <Card key={item.id} data={item} />
           ))}
       </div>
+      <CheckOutSideMenu />
       <ProductDetails />
     </Layout>
   )

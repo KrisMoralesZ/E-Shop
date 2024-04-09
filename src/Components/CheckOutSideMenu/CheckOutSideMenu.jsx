@@ -10,12 +10,12 @@ const CheckOutSideMenu = () => {
   const {
     count,
     isCheckOutSideMenuOpen,
-    closeCheckOutsideMenu,
     cartProducts,
     setCartProducts,
     order,
     setCount,
-    setOrder
+    setOrder,
+    setIsCheckOutSideMenuOpen
   } = useContext(ShoppingCartContext);
 
   const handleDelete = (id) => {
@@ -33,15 +33,18 @@ const CheckOutSideMenu = () => {
     };
     setOrder([...order, orderToAdd]);
     setCartProducts([]);
-    closeCheckOutsideMenu();
+    setIsCheckOutSideMenuOpen(false);
   }
 
   return (
-    <aside className={`${isCheckOutSideMenuOpen ? 'flex' : 'hidden'} product-details flex-col fixed bg-white right-0 border border-black rounded-lg z-10`}>
+    <aside
+      className={
+        `${isCheckOutSideMenuOpen && cartProducts.length !== 0 ? 'flex' : 'hidden'} product-details flex-col fixed bg-white right-0 border border-black rounded-lg z-10`
+      }>
       <div div className="flex justify-between items-center p-6">
         <h2 className="font-medium text-xl">My Order</h2>
         <XMarkIcon className="h-6 w-6 text-black cursor-pointer"
-          onClick={() => closeCheckOutsideMenu()}></XMarkIcon>
+          onClick={() => setIsCheckOutSideMenuOpen(false)}></XMarkIcon>
       </div>
       <div className="px-6 overflow-y-scroll flex-1">
         {

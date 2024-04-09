@@ -6,25 +6,24 @@ const Card = (data) => {
   const {
     setCount,
     count,
-    openProductDetails,
     setProductToShow,
     cartProducts,
     setCartProducts,
-    openCheckOutsideMenu,
-    closeProductDetails
+    setIsCheckOutSideMenuOpen,
+    setIsProductDetailsOpen,
   } = useContext(ShoppingCartContext);
 
   const showProduct = (productDetail) => {
-    openProductDetails();
     setProductToShow(productDetail);
+    setIsProductDetailsOpen(true);
   }
 
   const addProductsToCart = (event, productData) => {
     event.stopPropagation();
     setCount(count + 1);
     setCartProducts([...cartProducts, productData]);
-    openCheckOutsideMenu();
-    closeProductDetails();
+    setIsCheckOutSideMenuOpen(true);
+    setIsProductDetailsOpen(false);
   }
 
   const renderIcon = (id) => {
