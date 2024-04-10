@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
 import { ChevronLeftIcon } from '@heroicons/react/24/solid'
-import OrderCart from "../../Components/OrderCard";
+import OrderCartItem from "../../Components/OrderCartItem";
 import Layout from "../../Components/Layout";
 
 const MyOrder = () => {
@@ -23,7 +23,7 @@ const MyOrder = () => {
       <div className="px-6">
         {
           order?.[index]?.products?.map(product => (
-            <OrderCart
+            <OrderCartItem
               key={product.id}
               id={product.id}
               title={product.title}

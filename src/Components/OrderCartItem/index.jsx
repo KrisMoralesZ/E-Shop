@@ -1,6 +1,6 @@
 import { XMarkIcon } from "@heroicons/react/24/solid"
 
-const OrderCard = props => {
+const OrderCartItem = props => {
   const { title, imageUrl, price, handleDelete, id } = props
 
   return (
@@ -22,4 +22,4 @@ const OrderCard = props => {
   )
 }
 
-export default OrderCard
+export default OrderCartItem
