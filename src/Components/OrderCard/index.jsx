@@ -2,7 +2,7 @@ import React from "react"
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 
-const OrdersCard = props => {
+const OrderCard = props => {
   const { totalPrice, totalProducts } = props
 
   return (
@@ -21,4 +21,4 @@ const OrdersCard = props => {
   )
 }
 
-export default OrdersCard
+export default OrderCard
