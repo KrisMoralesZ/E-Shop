@@ -4,6 +4,7 @@ import Layout from "../../Components/Layout";
 import Card from "../../Components/Card";
 import CheckOutSideMenu from "../../Components/CheckOutSideMenu/CheckOutSideMenu";
 import ProductDetails from "../../Components/ProductDetails";
+import Searcher from "../../Components/Searcher";
 
 const Home = () => {
   const {
@@ -45,12 +46,7 @@ const Home = () => {
       <div className="flex w-80 items-center relative justify-center">
         <h1 className="font-medium text-xl">Home</h1>
       </div>
-      <input
-        type="text"
-        placeholder="Search your Products"
-        className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
-        onChange={(event) => setSearchByTitle(event.target.value)}
-      />
+      <Searcher />
       <div className="flex flex-wrap gap-4 w-full max-w-screen-lg">
         {showFilteredItems ?
           filteredItems?.map(filteredItem => (
