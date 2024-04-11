@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
+import { apiCall } from "../../assets/helpers/apiCall";
 import Layout from "../../Components/Layout";
 import ProductCard from "../../Components/ProductCard";
 import CheckOutSideMenu from "../../Components/CheckOutSideMenu/CheckOutSideMenu";
@@ -19,11 +20,12 @@ const Home = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const response = await fetch('https://api.escuelajs.co/api/v1/products');
+        const response = await fetch(apiCall);
         if (!response.ok) {
           throw new Error('Failed to fetch products');
         }
         const data = await response.json();
+        console.log('@@@@', data)
         setItems(data)
       } catch (error) {
         console.error('Error fetching products:', error);
