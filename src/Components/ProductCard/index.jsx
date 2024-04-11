@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { CheckIcon, PlusIcon } from "@heroicons/react/24/solid";
 
-const Card = (data) => {
+const ProductCard = (data) => {
   const {
     setCount,
     count,
@@ -66,4 +66,4 @@ const Card = (data) => {
   )
 }
 
-export default Card
+export default ProductCard

@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
-import { ChevronLeftIcon } from '@heroicons/react/24/solid'
-import OrderCart from "../../Components/OrderCard";
+import { ChevronLeftIcon } from '@heroicons/react/24/solid';
+import OrderCartItem from "../../Components/OrderCartItem";
 import Layout from "../../Components/Layout";
 
 const MyOrder = () => {
-  const { order } = useContext(ShoppingCartContext)
-  const currentPath = window.location.pathname
-  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+  const { order } = useContext(ShoppingCartContext);
+  const currentPath = window.location.pathname;
+  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
 
-  if (index === 'last') index = order?.length - 1
+  if (index === 'last') index = order?.length - 1;
 
   return (
     <Layout>
@@ -23,7 +23,7 @@ const MyOrder = () => {
       <div className="px-6">
         {
           order?.[index]?.products?.map(product => (
-            <OrderCart
+            <OrderCartItem
               key={product.id}
               id={product.id}
               title={product.title}

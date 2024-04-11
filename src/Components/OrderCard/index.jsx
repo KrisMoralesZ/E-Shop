@@ -1,23 +1,22 @@
-import { XMarkIcon } from "@heroicons/react/24/solid"
+import React from "react"
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
+
 
 const OrderCard = props => {
-  const { title, imageUrl, price, handleDelete, id } = props
+  const { totalPrice, totalProducts } = props
 
   return (
-    <div className="flex justify-between items-center mb-3">
-      <div className="flex items-center gap-2">
-        <figure className="w-20 h-20">
-          <img className="w-full h-full rounded-lg object-cover" src={imageUrl} alt={title} />
-        </figure>
-        <p className="text-sm font-light">{title}</p>
+    <div className="flex justify-between items-center mb-3 border-black p-4 w-80 rounded-lg">
+      <div className="flex justify-between w-full">
+        <p className="flex flex-col">
+          <span className="font-light">04.04.24</span>
+          <span className="font-light">{totalProducts} articles</span>
+        </p>
       </div>
-      <div className="flex items-center gap-2">
-        <p className="text-lg font-medium">{price}</p>
-        {handleDelete ?
-          (<XMarkIcon className="h-6 w-6 text-black cursor-pointer" onClick={() => handleDelete(id)}></XMarkIcon>)
-          : null
-        }
-      </div>
+      <p className="flex items-center gap-2">
+        <span className="font-medium text-2xl">{totalPrice}</span>
+        <ChevronRightIcon className="h-6 w-6 text-black cursor-pointer" />
+      </p>
     </div>
   )
 }
