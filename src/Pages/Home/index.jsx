@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import Layout from "../../Components/Layout";
-import Card from "../../Components/Card";
+import ProductCard from "../../Components/ProductCard";
 import CheckOutSideMenu from "../../Components/CheckOutSideMenu/CheckOutSideMenu";
 import ProductDetails from "../../Components/ProductDetails";
 import Searcher from "../../Components/Searcher";
@@ -13,15 +13,26 @@ const Home = () => {
     searchByTitle,
     searchByCategory,
     setItems,
-    setFilteredItems,
-    setSearchByTitle,
+    setFilteredItems
   } = useContext(ShoppingCartContext);
 
   useEffect(() => {
-    fetch('https://api.escuelajs.co/api/v1/products')
-      .then(response => response.json())
-      .then(data => setItems(data))
-  }, []);
+    const getProducts = async () => {
+      try {
+        const response = await fetch('https://api.escuelajs.co/api/v1/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        setItems(data)
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        throw error;
+      }
+    };
+
+    getProducts()
+  }, [])
 
   const filteredItemsByTitle = (items, searchByTitle) =>
     items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
@@ -50,10 +61,10 @@ const Home = () => {
       <div className="flex flex-wrap gap-4 w-full max-w-screen-lg">
         {showFilteredItems ?
           filteredItems?.map(filteredItem => (
-            <Card key={filteredItem.id} data={filteredItem} />
+            <ProductCard key={filteredItem.id} data={filteredItem} />
           )) :
           items?.map(item => (
-            <Card key={item.id} data={item} />
+            <ProductCard key={item.id} data={item} />
           ))}
       </div>
       <CheckOutSideMenu />
