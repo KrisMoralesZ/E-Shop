@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
-import Layout from "../../Components/Layout";
-import OrderCard from "../../Components/OrderCard";
+import Layout from "@/Components/Layout";
+import OrderCard from "@/Components/OrderCard";
 
 const MyOrders = () => {
   const { order } = useContext(ShoppingCartContext)

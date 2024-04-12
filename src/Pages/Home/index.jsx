@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../Context";
 import { apiUrl, backUpUrl } from "../../assets/helpers/apiCalls";
-import Layout from "../../Components/Layout";
-import ProductCard from "../../Components/ProductCard";
-import CheckOutSideMenu from "../../Components/CheckOutSideMenu/CheckOutSideMenu";
-import ProductDetails from "../../Components/ProductDetails";
-import Searcher from "../../Components/Searcher";
+import Layout from "@/Components/Layout";
+import ProductCard from '@/Components/ProductCard';
+import CheckOutSideMenu from "@/Components/CheckOutSideMenu/CheckOutSideMenu";
+import ProductDetails from "@/Components/ProductDetails";
+import Searcher from "@/Components/Searcher";
 
 const Home = () => {
   const {
@@ -27,7 +27,7 @@ const Home = () => {
         }
         const data = await response.json();
         const backUpData = await localResponse.json()
-        setItems(data.length > 20 ? data : backUpData)
+        setItems(data.length > 30 ? data : backUpData)
       } catch (error) {
         console.error('Error fetching products:', error);
         throw error;
