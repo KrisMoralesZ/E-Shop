@@ -1,16 +1,15 @@
 import React from "react";
 import { Route, Routes, useRoutes } from "react-router-dom";
-import Home from '../Home'
-import MyAccount from '../MyAccount'
-import MyOrder from '../MyOrder'
-import MyOrders from '../MyOrders'
-import SignIn from '../SignIn'
-import NotFound from '../NotFound'
+import Home from '../Home';
+import MyAccount from '../MyAccount';
+import MyOrder from '../MyOrder';
+import MyOrders from '../MyOrders';
+import SignIn from '../SignIn';
+import NotFound from '../NotFound';
 
 const Router = () => {
   return (
     <Routes>
-      {/* <AppRoutes /> */}
       <Route path='/' element={<Home />} />
       <Route path='/clothes' element={<Home />} />
       <Route path='/electronics' element={<Home />} />
