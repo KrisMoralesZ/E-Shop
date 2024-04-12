@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { ShoppingCartContext } from "../../Context";
+import { ShoppingCartContext } from "@/Context";
 import { apiUrl, backUpUrl } from "../../assets/helpers/apiCalls";
 import Layout from "@/Components/Layout";
 import ProductCard from '@/Components/ProductCard';

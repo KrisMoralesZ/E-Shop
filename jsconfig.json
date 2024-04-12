@@ -5,6 +5,7 @@
     "paths": {
       "@/Components/*": ["./Components/*"],
       "@/Pages/*": ["./Pages/*"],
+      "@/Context/*": ["./Context/*"],
     },
   },
 }

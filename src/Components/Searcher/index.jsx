@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ShoppingCartContext } from "../../Context";
+import { ShoppingCartContext } from "@/Context";
 
 const Searcher = () => {
   const { setSearchByTitle } = useContext(ShoppingCartContext);
