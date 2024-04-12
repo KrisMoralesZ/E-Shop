@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom';
 import { ShoppingCartProvider } from '@/Context';
-import Router from '../Router/Router';
+import Router from '@/Pages/Router/Router';
 import './App.css';
 
 

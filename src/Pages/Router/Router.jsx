@@ -1,13 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-// TODO: Fix relative imports
-import Home from '../Home';
-import MyAccount from '../MyAccount';
-import MyOrder from '../MyOrder';
-import MyOrders from '../MyOrders';
-import SignIn from '../SignIn';
-import NotFound from '../NotFound';
 import Layout from "@/Components/Layout";
+import Home from '@/Pages/Home';
+import MyAccount from '@/Pages/MyAccount';
+import MyOrder from '@/Pages/MyOrder';
+import MyOrders from '@/Pages/MyOrders';
+import SignIn from '@/Pages/SignIn';
+import NotFound from '@/Pages/NotFound';
 
 const Router = () => {
   return (
