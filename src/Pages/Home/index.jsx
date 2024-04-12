@@ -55,8 +55,8 @@ const Home = () => {
   const showFilteredItems = searchByTitle || searchByCategory;
 
   return (
-    <div>
-      <div className="flex w-80 items-center relative justify-center">
+    <div className="flex flex-col items-center relative justify-center">
+      <div>
         <h1 className="font-medium text-xl">Home</h1>
       </div>
       <Searcher />
