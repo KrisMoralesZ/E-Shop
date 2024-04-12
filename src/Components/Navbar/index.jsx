@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "@/Context";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
-
 const Navbar = () => {
   const { count, setSearchByCategory } = useContext(ShoppingCartContext);
   const activeStyle = 'underline underline-offset-4';
@@ -13,7 +12,7 @@ const Navbar = () => {
       <ul className="flex items-center gap-3">
         <li className="font-semibold">
           <NavLink
-            to='/'
+            to='/e-shop/home'
             onClick={() => setSearchByCategory(null)}
           >
             Shop-e
@@ -21,7 +20,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/clothes'
+            to='/e-shop/clothes'
             onClick={() => setSearchByCategory('clothes')}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
@@ -30,7 +29,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/electronics'
+            to='/e-shop/electronics'
             onClick={() => setSearchByCategory('electronics')}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
@@ -39,7 +38,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/furnitures'
+            to='/e-shop/furnitures'
             onClick={() => setSearchByCategory('furniture')}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
@@ -48,7 +47,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/shoes'
+            to='/e-shop/shoes'
             onClick={() => setSearchByCategory('shoes')}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
@@ -57,7 +56,7 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink
-            to='/others'
+            to='/e-shop/others'
             onClick={() => setSearchByCategory(null)}
             className={({ isActive }) => isActive ? activeStyle : undefined}
           >
@@ -70,22 +69,22 @@ const Navbar = () => {
           email
         </li>
         <li>
-          <NavLink to='/my-orders' className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/e-shop/my-orders' className={({ isActive }) => isActive ? activeStyle : undefined}>
             My Orders
           </NavLink>
         </li>
         <li>
-          <NavLink to='/my-account' className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/e-shop/my-account' className={({ isActive }) => isActive ? activeStyle : undefined}>
             My Account
           </NavLink>
         </li>
         <li>
-          <NavLink to='/sing-in' className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/e-shop/sing-in' className={({ isActive }) => isActive ? activeStyle : undefined}>
             Sign In
           </NavLink>
         </li>
         <li>
-          <NavLink to='/cart' className={({ isActive }) => isActive ? activeStyle : undefined}>
+          <NavLink to='/e-shop/cart' className={({ isActive }) => isActive ? activeStyle : undefined}>
             <div className="flex justify-center items-center">
               <ShoppingCartIcon className="h-6 w-6 text-black" />
               <div>

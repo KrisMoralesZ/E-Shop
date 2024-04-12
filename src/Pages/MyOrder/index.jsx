@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "@/Context";
 import { ChevronLeftIcon } from '@heroicons/react/24/solid';
 import OrderCartItem from "@/Components/OrderCartItem";
-import Layout from "@/Components/Layout";
 
 const MyOrder = () => {
   const { order } = useContext(ShoppingCartContext);
@@ -13,9 +12,9 @@ const MyOrder = () => {
   if (index === 'last') index = order?.length - 1;
 
   return (
-    <Layout>
+    <div>
       <div className="flex w-80 items-center relative mb-6 justify-center">
-        <Link to='/my-orders' className="absolute left-0">
+        <Link to='/e-shop/my-orders' className="absolute left-0">
           <ChevronLeftIcon className="h-6 w-6 text-black cursor-pointer" />
         </Link>
         <h1>My Order</h1>
@@ -33,7 +32,7 @@ const MyOrder = () => {
           ))
         }
       </div>
-    </Layout>
+    </div>
   )
 }
 

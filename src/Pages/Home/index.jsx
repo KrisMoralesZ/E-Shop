@@ -1,7 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { ShoppingCartContext } from "@/Context";
 import { apiUrl, backUpUrl } from "../../assets/helpers/apiCalls";
-import Layout from "@/Components/Layout";
 import ProductCard from '@/Components/ProductCard';
 import CheckOutSideMenu from "@/Components/CheckOutSideMenu/CheckOutSideMenu";
 import ProductDetails from "@/Components/ProductDetails";
@@ -56,7 +55,7 @@ const Home = () => {
   const showFilteredItems = searchByTitle || searchByCategory;
 
   return (
-    <Layout>
+    <div>
       <div className="flex w-80 items-center relative justify-center">
         <h1 className="font-medium text-xl">Home</h1>
       </div>
@@ -72,7 +71,7 @@ const Home = () => {
       </div>
       <CheckOutSideMenu />
       <ProductDetails />
-    </Layout>
+    </div>
   )
 }
 

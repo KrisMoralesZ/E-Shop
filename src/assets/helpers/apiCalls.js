@@ -1,2 +1,3 @@
-export const apiUrl = 'https://api.escuelajs.co/api/v1/products'
-export const backUpUrl = '../../../API.json'
+export const apiUrl = 'https://api.escuelajs.co/api/v1/products';
+// TODO: Move API to helpers
+export const backUpUrl = '../../../API.json';
