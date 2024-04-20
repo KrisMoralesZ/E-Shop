@@ -11,10 +11,10 @@ const Navbar = () => {
   const { getItem } = useLocalStorage('logged-in');
 
   useEffect(() => {
-    if (getItem.key === 'logged-in') {
+    if (getItem('logged-in')) {
       setLoggedIn(true);
     }
-  }, [getItem]);
+  }, [getItem, setLoggedIn]);
 
   return (
     <nav className="flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 text-sm font-light">
