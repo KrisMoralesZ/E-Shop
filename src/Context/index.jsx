@@ -29,6 +29,9 @@ export const ShoppingCartProvider = ({ children }) => {
   // Shopping Cart Order
   const [order, setOrder] = useState([]);
 
+  // Logged In
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return (
     <ShoppingCartContext.Provider value={{
       items,
@@ -42,6 +45,7 @@ export const ShoppingCartProvider = ({ children }) => {
       cartProducts,
       order,
       setItems,
+      loggedIn,
       setFilteredItems,
       setSearchByTitle,
       setSearchByCategory,
@@ -50,7 +54,8 @@ export const ShoppingCartProvider = ({ children }) => {
       setIsProductDetailsOpen,
       setProductToShow,
       setCartProducts,
-      setOrder
+      setOrder,
+      setLoggedIn
     }}>
       {children}
     </ShoppingCartContext.Provider>
