@@ -1,16 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { ShoppingCartContext } from "@/Context/index";
 
 
 const SignUpForm = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const { setLoggedIn } = useContext(ShoppingCartContext);
+
+  const navigate = useNavigate();
+
   const { setItem } = useLocalStorage('account');
-  const { account, setAccount } = useContext(ShoppingCartContext)
+  const { setItem: setLogin } = useLocalStorage('logged-in');
+
 
   const handleSignUp = () => {
-    console.log('@@@@', account)
-    setAccount({ ...account.name, ...account.email, ...account.password })
-    setItem(account)
+    setItem({ name: name, email: email, password: password });
+    setLogin('logged-in')
+    navigate('../home');
+    setLoggedIn(true);
   };
 
   return (
@@ -20,21 +31,22 @@ const SignUpForm = () => {
       <input
         type="text"
         placeholder="name"
-        onChange={account.name}
-        value={account.name}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
       />
       <p>Email</p>
       <input
         type="text"
         placeholder="e-mail"
-        onChange={account.email}
-        value={account.email} />
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
       <p>Password</p>
       <input
         type="text"
         placeholder="password"
-        onChange={account.password}
-        value={account.password}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <button
         className="border bg-black text-white"

@@ -31,7 +31,7 @@ export const ShoppingCartProvider = ({ children }) => {
 
   // Logged In
   const [loggedIn, setLoggedIn] = useState(false);
-  const [account, setAccount] = useState([])
+  const [account, setAccount] = useState({})
 
   return (
     <ShoppingCartContext.Provider value={{
