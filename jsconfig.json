@@ -6,7 +6,8 @@
       "@/Components/*": ["./Components/*"],
       "@/Pages/*": ["./Pages/*"],
       "@/Context/*": ["./Context/*"],
-      "@/utils/*": ["./utils/*"]
+      "@/utils/*": ["./utils/*"],
+      "@/hooks/*": ["./hooks/*"],
     },
   },
 }
