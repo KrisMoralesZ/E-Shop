@@ -90,7 +90,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to='/e-shop/sing-in' className={({ isActive }) => isActive ? activeStyle : undefined}>
+              <NavLink to='/e-shop/sign-in' className={({ isActive }) => isActive ? activeStyle : undefined}>
                 Sign Out
               </NavLink>
             </li>
