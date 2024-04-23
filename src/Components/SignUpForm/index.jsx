@@ -5,15 +5,19 @@ import { ShoppingCartContext } from "@/Context/index";
 
 
 const SignUpForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const { setLoggedIn } = useContext(ShoppingCartContext);
+  const {
+    name,
+    email,
+    password,
+    setName,
+    setEmail,
+    setPassword,
+    setLoggedIn
+  } = useContext(ShoppingCartContext);
 
   const navigate = useNavigate();
 
-  const { setItem } = useLocalStorage('account');
+  const { setItem, getItem } = useLocalStorage('account');
   const { setItem: setLogin } = useLocalStorage('logged-in');
 
 

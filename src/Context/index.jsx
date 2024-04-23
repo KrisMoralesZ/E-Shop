@@ -33,6 +33,11 @@ export const ShoppingCartProvider = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [account, setAccount] = useState({})
 
+  // User Credentials
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <ShoppingCartContext.Provider value={{
       items,
@@ -47,6 +52,9 @@ export const ShoppingCartProvider = ({ children }) => {
       order,
       loggedIn,
       account,
+      name,
+      email,
+      password,
       setItems,
       setFilteredItems,
       setSearchByTitle,
@@ -58,7 +66,10 @@ export const ShoppingCartProvider = ({ children }) => {
       setCartProducts,
       setOrder,
       setLoggedIn,
-      setAccount
+      setAccount,
+      setName,
+      setEmail,
+      setPassword
     }}>
       {children}
     </ShoppingCartContext.Provider>

@@ -129,7 +129,7 @@ const Navbar = () => {
         </ul>
       )
       }
-    </nav >
+    </nav>
   )
 }
 export default Navbar;
