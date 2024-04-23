@@ -11,6 +11,7 @@ const CheckOutSideMenu = () => {
     count,
     isCheckOutSideMenuOpen,
     cartProducts,
+    loggedIn,
     setCartProducts,
     order,
     setCount,
@@ -65,11 +66,19 @@ const CheckOutSideMenu = () => {
           <span className='font-light'>Total:</span>
           <span className='font-medium text-2xl'>${totalPrice(cartProducts)}</span>
         </p>
-        <Link to='/e-shop/my-orders/last'>
-          <button className="bg-black w-full text-white rounded-lg" onClick={() => handleCheckout()}>
-            Checkout
-          </button>
-        </Link>
+        {loggedIn ?
+          <Link to='/e-shop/my-orders/last'>
+            <button className="bg-black w-full text-white rounded-lg" onClick={() => handleCheckout()}>
+              Checkout
+            </button>
+          </Link>
+          :
+          <Link to='/e-shop/sign-in'>
+            <button className="bg-black w-full text-white rounded-lg" onClick={() => handleCheckout()}>
+              Checkout
+            </button>
+          </Link>
+        }
       </div>
     </aside>
   )

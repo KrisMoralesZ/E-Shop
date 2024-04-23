@@ -29,6 +29,15 @@ export const ShoppingCartProvider = ({ children }) => {
   // Shopping Cart Order
   const [order, setOrder] = useState([]);
 
+  // Logged In
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [account, setAccount] = useState({})
+
+  // User Credentials
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <ShoppingCartContext.Provider value={{
       items,
@@ -41,6 +50,11 @@ export const ShoppingCartProvider = ({ children }) => {
       productToShow,
       cartProducts,
       order,
+      loggedIn,
+      account,
+      name,
+      email,
+      password,
       setItems,
       setFilteredItems,
       setSearchByTitle,
@@ -50,7 +64,12 @@ export const ShoppingCartProvider = ({ children }) => {
       setIsProductDetailsOpen,
       setProductToShow,
       setCartProducts,
-      setOrder
+      setOrder,
+      setLoggedIn,
+      setAccount,
+      setName,
+      setEmail,
+      setPassword
     }}>
       {children}
     </ShoppingCartContext.Provider>
