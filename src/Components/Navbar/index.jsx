@@ -2,19 +2,24 @@ import React, { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "@/Context";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 const Navbar = () => {
   const { cartProducts, loggedIn, setSearchByCategory, setLoggedIn } = useContext(ShoppingCartContext);
   const activeStyle = 'underline underline-offset-4';
 
-  const { getItem } = useLocalStorage('logged-in');
+  const { getItem, removeItem } = useLocalStorage('logged-in');
 
   useEffect(() => {
     if (getItem('logged-in')) {
       setLoggedIn(true);
     }
   }, [getItem, setLoggedIn]);
+
+  const handleLogOut = () => {
+    removeItem('logged-in');
+    setLoggedIn(false);
+  }
 
   return (
     <nav className="flex justify-between items-center top-0 fixed z-10 w-full py-5 px-8 text-sm font-light">
@@ -89,7 +94,7 @@ const Navbar = () => {
                 My Account
               </NavLink>
             </li>
-            <li>
+            <li onClick={() => handleLogOut()}>
               <NavLink to='/e-shop/sign-in' className={({ isActive }) => isActive ? activeStyle : undefined}>
                 Sign Out
               </NavLink>
@@ -124,7 +129,7 @@ const Navbar = () => {
         </ul>
       )
       }
-    </nav>
+    </nav >
   )
 }
 export default Navbar;
