@@ -20,8 +20,10 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setAccount(getItem('account'));
-  }, [setAccount, getItem]);
+    if (getItem()) {
+      setAccount(getItem());
+    };
+  }, []);
 
   const handleLogIn = () => {
     if (account.email === email && account.password === password) {
@@ -35,7 +37,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 justify-center">
+    <div className="flex flex-col gap-4 justify-center rounded-b-md p-6 shadow-md">
       <h1>Log in</h1>
       <input
         type="text"
@@ -50,7 +52,7 @@ const LoginForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button
-        className="border bg-black text-white"
+        className="border bg-black text-white rounded-md"
         onClick={() => handleLogIn()}
       >
         Log in

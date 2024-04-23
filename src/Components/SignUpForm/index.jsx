@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { ShoppingCartContext } from "@/Context/index";
@@ -17,7 +17,7 @@ const SignUpForm = () => {
 
   const navigate = useNavigate();
 
-  const { setItem, getItem } = useLocalStorage('account');
+  const { setItem } = useLocalStorage('account');
   const { setItem: setLogin } = useLocalStorage('logged-in');
 
 
@@ -29,10 +29,11 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 justify-center">
+    <div className="flex flex-col gap-4 justify-center rounded-b-md p-6 shadow-md">
       <h1>Sign up</h1>
       <p>Name</p>
       <input
+        className="border-spacing-1"
         type="text"
         placeholder="name"
         value={name}
@@ -53,7 +54,7 @@ const SignUpForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button
-        className="border bg-black text-white"
+        className="border bg-black text-white rounded-md"
         onClick={() => handleSignUp()}
       >
         Sign Up
